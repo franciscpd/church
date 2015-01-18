@@ -1,0 +1,27 @@
+<menu>
+    <menuitem label='Administração'>
+        <menu>
+              <menuitem label='Rotinas'>
+                  <icon>fa:file-code-o fa-fw green</icon>
+                  <action>SystemProgramList</action>
+              </menuitem>
+              <menuitem label='Grupos'>
+                  <icon>fa:users fa-fw blue</icon>
+                  <action>SystemGroupList</action>
+              </menuitem>
+              <menuitem label='Usuários'>
+                  <icon>fa:user fa-fw blue</icon>
+                  <action>SystemUserList</action>
+              </menuitem>
+        </menu>
+    </menuitem>
+    
+    <menuitem label='Sistema'>
+        <menu>
+              <menuitem label='Sair'>
+                  <icon></icon>
+                  <action>LoginForm#method=onLogout#static=1</action>
+              </menuitem>
+        </menu>
+    </menuitem>
+</menu>
