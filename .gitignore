@@ -1,3 +1,2 @@
 .env
 app/database/backup/
-app/config/ieadb.ini
