@@ -20,7 +20,7 @@ class LoginForm extends TPage
         // creates the form
         $this->form = new TForm('form_User');
         $this->form->class = 'tform';
-        $this->form->style = 'width: 450px;margin:auto; margin-top:120px;';
+        $this->form->style = 'width: 343px;margin:auto; margin-top:120px;';
 
         // add the notebook inside the form
         $this->form->add($table);
@@ -30,8 +30,8 @@ class LoginForm extends TPage
         $password = new TPassword('password');
 
         // define the sizes
-        $login->setSize(320, 40);
-        $password->setSize(320, 40);
+        $login->setSize(250, 40);
+        $password->setSize(250, 40);
 
         $login->style = 'height:35px; font-size:14px;float:left;border-bottom-left-radius: 0;border-top-left-radius: 0;';
         $password->style = 'height:35px;margin-bottom: 15px;font-size:14px;float:left;border-bottom-left-radius: 0;border-top-left-radius: 0;';
@@ -43,8 +43,8 @@ class LoginForm extends TPage
         $login->placeholder = _t('User');
         $password->placeholder = _t('Password');
 
-        $user = '<span style="float:left;width:35px;margin-left:45px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>';
-        $locker = '<span style="float:left;width:35px;margin-left:45px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>';
+        $user = '<span style="float:left;width:35px;margin-left:27px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>';
+        $locker = '<span style="float:left;width:35px;margin-left:27px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>';
 
         $container1 = new TElement('div');
         $container1->add($user);
@@ -66,7 +66,7 @@ class LoginForm extends TPage
         // define the button action
         $save_button->setAction(new TAction(array($this, 'onLogin')), _t('Log in'));
         $save_button->class = 'btn btn-success btn-defualt';
-        $save_button->style = 'margin-left:32px;width:355px;height:40px;border-radius:6px;font-size:18px';
+        $save_button->style = 'margin-left:17px;width:284px;height:40px;border-radius:6px;font-size:18px';
 
         $row=$table->addRow();
         $row->class = 'tformaction';
