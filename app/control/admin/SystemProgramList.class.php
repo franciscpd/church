@@ -93,15 +93,6 @@ class SystemProgramList extends TPage
         $order_controller->setParameter('order', 'controller');
         $controller->setAction($order_controller);
 
-        // inline editing
-        $name_edit = new TDataGridAction(array($this, 'onInlineEdit'));
-        $name_edit->setField('id');
-        $name->setEditAction($name_edit);
-
-        $controller_edit = new TDataGridAction(array($this, 'onInlineEdit'));
-        $controller_edit->setField('id');
-        $controller->setEditAction($controller_edit);
-
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('SystemProgramForm', 'onEdit'));
         $action1->setLabel(_t('Edit'));
@@ -135,49 +126,6 @@ class SystemProgramList extends TPage
         
         // add the table inside the page
         parent::add($table);
-    }
-    
-    /**
-     * method onInlineEdit()
-     * Inline record editing
-     * @param $param Array containing:
-     *              key: object ID value
-     *              field name: object attribute to be updated
-     *              value: new attribute content 
-     */
-    function onInlineEdit($param)
-    {
-        try
-        {
-            // get the parameter $key
-            $field = $param['field'];
-            $key   = $param['key'];
-            $value = $param['value'];
-            
-            // open a transaction with database 'permission'
-            TTransaction::open('ieadb');
-            
-            // instantiates object SystemProgram
-            $object = new SystemProgram($key);
-            // deletes the object from the database
-            $object->{$field} = $value;
-            $object->store();
-            
-            // close the transaction
-            TTransaction::close();
-            
-            // reload the listing
-            $this->onReload($param);
-            // shows the success message
-            new TMessage('info', "Record Updated");
-        }
-        catch (Exception $e) // in case of exception
-        {
-            // shows the exception error message
-            new TMessage('error', '<b>Error</b> ' . $e->getMessage());
-            // undo all pending operations
-            TTransaction::rollback();
-        }
     }
     
     /**

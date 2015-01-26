@@ -92,15 +92,6 @@ class SystemUserList extends TPage
         $order_name= new TAction(array($this, 'onReload'));
         $order_name->setParameter('order', 'name');
         $name->setAction($order_name);
-
-
-
-        // inline editing
-        $name_edit = new TDataGridAction(array($this, 'onInlineEdit'));
-        $name_edit->setField('id');
-        $name->setEditAction($name_edit);
-
-
         
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('SystemUserForm', 'onEdit'));
@@ -135,49 +126,6 @@ class SystemUserList extends TPage
         
         // add the table inside the page
         parent::add($table);
-    }
-    
-    /**
-     * method onInlineEdit()
-     * Inline record editing
-     * @param $param Array containing:
-     *              key: object ID value
-     *              field name: object attribute to be updated
-     *              value: new attribute content 
-     */
-    function onInlineEdit($param)
-    {
-        try
-        {
-            // get the parameter $key
-            $field = $param['field'];
-            $key   = $param['key'];
-            $value = $param['value'];
-            
-            // open a transaction with database 'permission'
-            TTransaction::open('ieadb');
-            
-            // instantiates object System_user
-            $object = new SystemUser($key);
-            // deletes the object from the database
-            $object->{$field} = $value;
-            $object->store();
-            
-            // close the transaction
-            TTransaction::close();
-            
-            // reload the listing
-            $this->onReload($param);
-            // shows the success message
-            new TMessage('info', _t('Record Updated'));
-        }
-        catch (Exception $e) // in case of exception
-        {
-            // shows the exception error message
-            new TMessage('error', '<b>Error</b> ' . $e->getMessage());
-            // undo all pending operations
-            TTransaction::rollback();
-        }
     }
     
     /**

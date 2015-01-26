@@ -91,11 +91,6 @@ class SystemGroupList extends TPage
         $order_name->setParameter('order', 'name');
         $name->setAction($order_name);
 
-        // inline editing
-        $name_edit = new TDataGridAction(array($this, 'onInlineEdit'));
-        $name_edit->setField('id');
-        $name->setEditAction($name_edit);
-
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('SystemGroupForm', 'onEdit'));
         $action1->setLabel(_t('Edit'));
@@ -130,50 +125,7 @@ class SystemGroupList extends TPage
         // add the container inside the page
         parent::add($container);
     }
-    
-    /**
-     * method onInlineEdit()
-     * Inline record editing
-     * @param $param Array containing:
-     *              key: object ID value
-     *              field name: object attribute to be updated
-     *              value: new attribute content 
-     */
-    function onInlineEdit($param)
-    {
-        try
-        {
-            // get the parameter $key
-            $field = $param['field'];
-            $key   = $param['key'];
-            $value = $param['value'];
-            
-            // open a transaction with database 'permission'
-            TTransaction::open('ieadb');
-            
-            // instantiates object System_group
-            $object = new SystemGroup($key);
-            // deletes the object from the database
-            $object->{$field} = $value;
-            $object->store();
-            
-            // close the transaction
-            TTransaction::close();
-            
-            // reload the listing
-            $this->onReload($param);
-            // shows the success message
-            new TMessage('info', "Record Updated");
-        }
-        catch (Exception $e) // in case of exception
-        {
-            // shows the exception error message
-            new TMessage('error', '<b>Error</b> ' . $e->getMessage());
-            // undo all pending operations
-            TTransaction::rollback();
-        }
-    }
-    
+     
     /**
      * method onSearch()
      * Register the filter in the session when the user performs a search
