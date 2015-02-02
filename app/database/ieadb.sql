@@ -17,6 +17,8 @@ INSERT INTO "system_program" VALUES(4,'Listagem de Rotinas','SystemProgramList')
 INSERT INTO "system_program" VALUES(5,'Manutenção de Usuários','SystemUserForm');
 INSERT INTO "system_program" VALUES(6,'Listagem de Usuários','SystemUserList');
 INSERT INTO "system_program" VALUES(7,'Manutenção de Membros','MemberForm');
+INSERT INTO "system_program" VALUES(8,'Pesquisa de Cidades','CitySeek');
+INSERT INTO "system_program" VALUES(9,'Listagem de Membros','MemberList');
 CREATE TABLE system_user(
   id INTEGER PRIMARY KEY NOT NULL,
   name VARCHAR(100),
@@ -59,6 +61,8 @@ INSERT INTO "system_group_program" VALUES(4,1,4);
 INSERT INTO "system_group_program" VALUES(5,1,5);
 INSERT INTO "system_group_program" VALUES(6,1,6);
 INSERT INTO "system_group_program" VALUES(7,1,7);
+INSERT INTO "system_group_program" VALUES(8,1,8);
+INSERT INTO "system_group_program" VALUES(9,1,9);
 CREATE TABLE system_user_program(
   id INTEGER PRIMARY KEY NOT NULL,
   system_user_id INTEGER NOT NULL,
