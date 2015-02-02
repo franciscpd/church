@@ -1,4 +1,13 @@
 <menu>
+    <menuitem label='Cadastro'>
+        <menu>
+              <menuitem label='Membros'>
+                  <icon>fa:users fa-fw blue</icon>
+                  <action>MemberList</action>
+              </menuitem>
+        </menu>
+    </menuitem>
+    
     <menuitem label='Administração'>
         <menu>
               <menuitem label='Rotinas'>

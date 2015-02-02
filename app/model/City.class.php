@@ -3,7 +3,7 @@
  * City Active Record
  * @author  Francis Soares de Oliveira
  */
-class SystemGroup extends TRecord
+class City extends TRecord
 {
     const TABLENAME = 'city';
     const PRIMARYKEY= 'id';

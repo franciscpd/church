@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tnotebook id="0">
+        <class>TNotebook</class>
+        <name>nbkDadosPessoais</name>
+        <x>10</x>
+        <y>10</y>
+        <width>874</width>
+        <height>600</height>
+        <pages>
+            <tpanel id="1" tab="Dados Pessoais">
+                <tframe id="0">
+                    <class>TFrame</class>
+                    <name>frame_filiacao</name>
+                    <title>  Filiação  </title>
+                    <x>10</x>
+                    <y>123</y>
+                    <width>644</width>
+                    <height>78</height>
+                    <child>
+                        <tpanel>
+                            <tlabel id="0">
+                                <class>TLabel</class>
+                                <name>lbFather</name>
+                                <x>10</x>
+                                <y>10</y>
+                                <color>#000000</color>
+                                <size>10</size>
+                                <style></style>
+                                <value>Pai</value>
+                            </tlabel>
+                            <tentry id="1">
+                                <class>TEntry</class>
+                                <name>father</name>
+                                <x>10</x>
+                                <y>24</y>
+                                <value></value>
+                                <mask></mask>
+                                <width>285</width>
+                                <maxlen>100</maxlen>
+                                <editable>1</editable>
+                                <tip></tip>
+                                <required></required>
+                            </tentry>
+                            <tlabel id="2">
+                                <class>TLabel</class>
+                                <name>lbMother</name>
+                                <x>344</x>
+                                <y>10</y>
+                                <color>#000000</color>
+                                <size>10</size>
+                                <style></style>
+                                <value>Mãe</value>
+                            </tlabel>
+                            <tentry id="3">
+                                <class>TEntry</class>
+                                <name>mother</name>
+                                <x>343</x>
+                                <y>24</y>
+                                <value></value>
+                                <mask></mask>
+                                <width>285</width>
+                                <maxlen>0</maxlen>
+                                <editable>1</editable>
+                                <tip></tip>
+                                <required></required>
+                            </tentry>
+                        </tpanel>
+                    </child>
+                </tframe>
+                <tframe id="1">
+                    <class>TFrame</class>
+                    <name>frame_image</name>
+                    <title>  Foto  </title>
+                    <x>665</x>
+                    <y>5</y>
+                    <width>190</width>
+                    <height>196</height>
+                    <child>
+                        <tpanel>
+                            <timage id="0">
+                                <class>TImage</class>
+                                <name>imgMember</name>
+                                <x>20</x>
+                                <y>20</y>
+                                <image>app/images/adianti.png</image>
+                                <path>/home/franciscpd/Projetos/ieadb/app/images/adianti.png</path>
+                            </timage>
+                        </tpanel>
+                    </child>
+                </tframe>
+                <tfile id="2">
+                    <class>TFile</class>
+                    <name>image</name>
+                    <x>665</x>
+                    <y>203</y>
+                    <width>170</width>
+                    <editable>1</editable>
+                    <tip>Selecione uma imagem para o membro</tip>
+                    <required></required>
+                </tfile>
+            </tpanel>
+            <tpanel id="2" tab="Informações de Membro"/>
+        </pages>
+    </tnotebook>
+</form>

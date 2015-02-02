@@ -126,6 +126,7 @@ class TCombo extends TField implements AdiantiWidgetInterface
                 $code .= "tcombo_add_option('{$formname}', '{$name}', '{$key}', '{$value}'); ";
             }
         }
+        
         TScript::create($code);
     }
     

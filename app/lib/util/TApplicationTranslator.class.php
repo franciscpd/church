@@ -79,6 +79,32 @@ class TApplicationTranslator
         $this->messages['en'][] = 'Page name';
         $this->messages['en'][] = 'The passwords do not match';
         $this->messages['en'][] = 'Log in';
+        $this->messages['en'][] = 'Member';
+        $this->messages['en'][] = 'Members';
+        $this->messages['en'][] = 'Image';
+        $this->messages['en'][] = 'Father';
+        $this->messages['en'][] = 'Mother';
+        $this->messages['en'][] = 'Birth of Date';
+        $this->messages['en'][] = 'Marital Status';
+        $this->messages['en'][] = 'Spouse Name';
+        $this->messages['en'][] = 'Nacionality';
+        $this->messages['en'][] = 'Gender';
+        $this->messages['en'][] = 'City';
+        $this->messages['en'][] = 'Select';
+        $this->messages['en'][] = 'State';
+        $this->messages['en'][] = 'Search of City';
+        $this->messages['en'][] = 'Address';
+        $this->messages['en'][] = 'Number';
+        $this->messages['en'][] = 'District';
+        $this->messages['en'][] = 'Organ';
+        $this->messages['en'][] = 'State Organ';
+        $this->messages['en'][] = 'Phone';
+        $this->messages['en'][] = 'Mobile Phone';
+        $this->messages['en'][] = 'Conversion';
+        $this->messages['en'][] = 'Water Baptism';
+        $this->messages['en'][] = 'Spirit Baptism';
+        $this->messages['en'][] = 'Status';
+        $this->messages['en'][] = 'Invalid image';
         
         $this->messages['pt'][] = 'Arquivo não encontrado';
         $this->messages['pt'][] = 'Buscar';
@@ -144,6 +170,32 @@ class TApplicationTranslator
         $this->messages['pt'][] = 'Nome da Tela';
         $this->messages['pt'][] = 'As senhas não conferem';
         $this->messages['pt'][] = 'Entrar';
+        $this->messages['pt'][] = 'Membro';
+        $this->messages['pt'][] = 'Membros';
+        $this->messages['pt'][] = 'Imagem';
+        $this->messages['pt'][] = 'Pai';
+        $this->messages['pt'][] = 'Mãe';
+        $this->messages['pt'][] = 'Data de Nascimento';
+        $this->messages['pt'][] = 'Estado Civil';
+        $this->messages['pt'][] = 'Cônjuge';
+        $this->messages['pt'][] = 'Nacionalidade';
+        $this->messages['pt'][] = 'Sexo';
+        $this->messages['pt'][] = 'Cidade';
+        $this->messages['pt'][] = 'Selecionar';
+        $this->messages['pt'][] = 'Estado';
+        $this->messages['pt'][] = 'Busca de Cidade';
+        $this->messages['pt'][] = 'Endereço';
+        $this->messages['pt'][] = 'Número';
+        $this->messages['pt'][] = 'Bairro';
+        $this->messages['pt'][] = 'Emissor';
+        $this->messages['pt'][] = 'UF Emissor';
+        $this->messages['pt'][] = 'Telefone';
+        $this->messages['pt'][] = 'Celular';
+        $this->messages['pt'][] = 'Conversão';
+        $this->messages['pt'][] = 'Batismo nas Águas';
+        $this->messages['pt'][] = 'Batismo no Espirito';
+        $this->messages['pt'][] = 'Situação';
+        $this->messages['pt'][] = 'Imagem inválida';
     }
     
     /**

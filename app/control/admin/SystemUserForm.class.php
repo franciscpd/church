@@ -46,7 +46,7 @@ class SystemUserForm extends TPage
         $program_id          = new TDBSeekButton('program_id', 'ieadb', 'form_System_user', 'SystemProgram', 'name', 'programs_id', 'programs_name');
         $program_name        = new TEntry('program_name');
         $groups              = new TDBCheckGroup('groups','ieadb','SystemGroup','id','name');
-        $frontpage_id        = new TDBSeekButton('frontpage_id', 'ieadb', 'form_System_user', 'SystemProgram', 'name', 'frontpage_id', 'frontpage_name');
+        $frontpage_id        = new TDBSeekButton('frontpage_id', 'ieadb', 'form_System_user', 'SystemProgram', 'name', 'frontpage_id', 'frontpage_name', $place_state);
         $frontpage_name      = new TEntry('frontpage_name');
         
         $scroll = new TScroll;

@@ -16,6 +16,7 @@ INSERT INTO "system_program" VALUES(3,'Manutenção de Rotinas','SystemProgramFo
 INSERT INTO "system_program" VALUES(4,'Listagem de Rotinas','SystemProgramList');
 INSERT INTO "system_program" VALUES(5,'Manutenção de Usuários','SystemUserForm');
 INSERT INTO "system_program" VALUES(6,'Listagem de Usuários','SystemUserList');
+INSERT INTO "system_program" VALUES(7,'Manutenção de Membros','MemberForm');
 CREATE TABLE system_user(
   id INTEGER PRIMARY KEY NOT NULL,
   name VARCHAR(100),
@@ -57,6 +58,7 @@ INSERT INTO "system_group_program" VALUES(3,1,3);
 INSERT INTO "system_group_program" VALUES(4,1,4);
 INSERT INTO "system_group_program" VALUES(5,1,5);
 INSERT INTO "system_group_program" VALUES(6,1,6);
+INSERT INTO "system_group_program" VALUES(7,1,7);
 CREATE TABLE system_user_program(
   id INTEGER PRIMARY KEY NOT NULL,
   system_user_id INTEGER NOT NULL,
@@ -5675,6 +5677,43 @@ INSERT INTO "city" VALUES(5222054,52,'Vicentinópolis');
 INSERT INTO "city" VALUES(5222203,52,'Vila Boa');
 INSERT INTO "city" VALUES(5222302,52,'Vila Propício');
 INSERT INTO "city" VALUES(5300108,53,'Brasília');
+CREATE TABLE member (
+    id 				INTEGER PRIMARY KEY NOT NULL,
+    name 			VARCHAR(100),
+    father			VARCHAR(100),
+    mother			VARCHAR(100),
+    birth_date 		DATE,
+    marital_status	VARCHAR(1),
+    spouse_name		VARCHAR(100),
+    nacionality		VARCHAR(45),
+    gender		    VARCHAR(1),
+    profession		VARCHAR(45),
+    cpf				VARCHAR(11),
+    rg				VARCHAR(14),
+    organ			INTEGER,
+    state_rg_id		INTEGER,
+    phone			VARCHAR(10),
+    mobile_phone	VARCHAR(10),
+    date_of_conversion		DATE,
+    date_of_water_baptism 	DATE,
+    date_of_spirit_baptism 	DATE,
+    address			VARCHAR(100),
+    number_address	VARCHAR(5),
+    district		VARCHAR(45),
+    city_id			INTEGER,
+    state_id 		INTEGER,
+    status 			VARCHAR(1),
+    image			VARCHAR(60),
+    CONSTRAINT fk_member_state_rg
+    	FOREIGN KEY(state_rg_id)
+    	REFERENCES state(id),
+    CONSTRAINT fk_member_state
+    	FOREIGN KEY(state_id)
+    	REFERENCES state(id),
+    CONSTRAINT fk_member_city
+    	FOREIGN KEY(city_id)
+    	REFERENCES city(id)
+);
 CREATE INDEX system_user_fk_system_user_system_program1 ON system_user(frontpage_id);
 CREATE INDEX system_user_group_fk_system_user_has_system_group_system_group1 ON system_user_group(system_group_id);
 CREATE INDEX system_user_group_fk_system_user_has_system_group_system_user ON system_user_group(system_user_id);
@@ -5683,4 +5722,7 @@ CREATE INDEX system_group_program_fk_system_group_has_system_group1 ON system_gr
 CREATE INDEX system_user_program_fk_system_user_has_system_program_system_program1 ON system_user_program(system_program_id);
 CREATE INDEX system_user_program_fk_system_user_has_system_program_system_user1 ON system_user_program(system_user_id);
 CREATE INDEX city_fk_city_state1 ON city(state_id);
+CREATE INDEX member_fk_member_state_rg ON member(state_rg_id);
+CREATE INDEX member_fk_member_state1 ON member(state_id);
+CREATE INDEX member_fk_member_city1 ON member(city_id);
 COMMIT;
