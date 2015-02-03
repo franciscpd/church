@@ -60,15 +60,18 @@ class MemberList extends TPage
         $this->form->setData( TSession::getValue('Member_filter_data') );
         
         // create two action buttons to the form
-        $find_button = TButton::create('find', array($this, 'onSearch'), _t('Find'), 'ico_find.png');
-        $new_button  = TButton::create('new',  array('MemberForm', 'onEdit'), _t('New'), 'ico_new.png');
+        $find_button = TButton::create('find', array($this, 'onSearch'), _t('Find'), 'bs:search');
+        $new_button  = TButton::create('new',  array('MemberForm', 'onEdit'), _t('New'), 'bs:plus');
+        $report_button = TButton::create('report', array('MemberReport', 'onShow'), _t('Report'), 'bs:print');
         
         $this->form->addField($find_button);
         $this->form->addField($new_button);
+        $this->form->addField($report_button);
         
         $buttons_box = new THBox;
         $buttons_box->add($find_button);
         $buttons_box->add($new_button);
+        $buttons_box->add($report_button);
         
         // add a row for the form action
         $row = $table->addRow();
@@ -110,12 +113,12 @@ class MemberList extends TPage
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('MemberForm', 'onEdit'));
         $action1->setLabel(_t('Edit'));
-        $action1->setImage('ico_edit.png');
+        $action1->setImage('bs:edit');
         $action1->setField('id');
         
         $action2 = new TDataGridAction(array($this, 'onDelete'));
         $action2->setLabel(_t('Delete'));
-        $action2->setImage('ico_delete.png');
+        $action2->setImage('bs:trash');
         $action2->setField('id');
         
         // add the actions to the datagrid
@@ -131,7 +134,7 @@ class MemberList extends TPage
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = TVBox::pack( new TXMLBreadCrumb('menu.xml', 'MemberList'), $this->form, $this->datagrid, $this->pageNavigation);
         parent::add($container);
     }
     
@@ -317,7 +320,7 @@ class MemberList extends TPage
             TTransaction::open('ieadb'); // open a transaction with database
             $object = new Member($key, FALSE); // instantiates the Active Record
             
-            if (file_exists('./app/images/' . $object->image))
+            if (file_exists('./app/images/' . $object->image) && !is_dir('./app/images/' . $object->image))
             {
                 unlink('./app/images/' . $object->image);
             }

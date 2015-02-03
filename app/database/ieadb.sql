@@ -5,6 +5,7 @@ CREATE TABLE system_group(
   name VARCHAR(100)
 );
 INSERT INTO "system_group" VALUES(1,'Staff');
+INSERT INTO "system_group" VALUES(2,'Secretaria');
 CREATE TABLE system_program(
   id INTEGER PRIMARY KEY NOT NULL,
   name VARCHAR(100),
@@ -19,6 +20,7 @@ INSERT INTO "system_program" VALUES(6,'Listagem de Usuários','SystemUserList');
 INSERT INTO "system_program" VALUES(7,'Manutenção de Membros','MemberForm');
 INSERT INTO "system_program" VALUES(8,'Pesquisa de Cidades','CitySeek');
 INSERT INTO "system_program" VALUES(9,'Listagem de Membros','MemberList');
+INSERT INTO "system_program" VALUES(10,'Relatório de Membros','MemberReport');
 CREATE TABLE system_user(
   id INTEGER PRIMARY KEY NOT NULL,
   name VARCHAR(100),
@@ -30,7 +32,7 @@ CREATE TABLE system_user(
     FOREIGN KEY(frontpage_id)
     REFERENCES system_program(id)
 );
-INSERT INTO "system_user" VALUES(1,'Francis Soares de Oliveira','franciscpd','4b1e7efc1ca798d812e6063871c544ca','franciscpd@gmail.com',6);
+INSERT INTO "system_user" VALUES(2,'Administrador','admin','21232f297a57a5a743894a0e4a801fc3','admin@admin.com',9);
 CREATE TABLE system_user_group(
   id INTEGER PRIMARY KEY NOT NULL,
   system_user_id INTEGER NOT NULL,
@@ -42,7 +44,7 @@ CREATE TABLE system_user_group(
     FOREIGN KEY(system_group_id)
     REFERENCES system_group(id)
 );
-INSERT INTO "system_user_group" VALUES(1,1,1);
+INSERT INTO "system_user_group" VALUES(2,2,1);
 CREATE TABLE system_group_program(
   id INTEGER PRIMARY KEY NOT NULL,
   system_group_id INTEGER NOT NULL,
@@ -63,6 +65,11 @@ INSERT INTO "system_group_program" VALUES(6,1,6);
 INSERT INTO "system_group_program" VALUES(7,1,7);
 INSERT INTO "system_group_program" VALUES(8,1,8);
 INSERT INTO "system_group_program" VALUES(9,1,9);
+INSERT INTO "system_group_program" VALUES(10,1,10);
+INSERT INTO "system_group_program" VALUES(11,2,7);
+INSERT INTO "system_group_program" VALUES(12,2,8);
+INSERT INTO "system_group_program" VALUES(13,2,9);
+INSERT INTO "system_group_program" VALUES(14,2,10);
 CREATE TABLE system_user_program(
   id INTEGER PRIMARY KEY NOT NULL,
   system_user_id INTEGER NOT NULL,

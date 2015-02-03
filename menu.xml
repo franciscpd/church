@@ -28,7 +28,7 @@
     <menuitem label='Sistema'>
         <menu>
               <menuitem label='Sair'>
-                  <icon></icon>
+                  <icon>bs:log-out</icon>
                   <action>LoginForm#method=onLogout#static=1</action>
               </menuitem>
         </menu>

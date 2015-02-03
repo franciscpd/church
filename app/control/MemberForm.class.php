@@ -156,16 +156,16 @@ class MemberForm extends TPage
         // create an action button (save)
         $save_button=new TButton('save');
         $save_button->setAction(new TAction(array($this, 'onSave')), _t('Save'));
-        $save_button->setImage('ico_save.png');
+        $save_button->setImage('bs:floppy-disk');
         
         // create an new button (edit with no parameters)
         $new_button=new TButton('new');
         $new_button->setAction(new TAction(array($this, 'onEdit')), _t('New'));
-        $new_button->setImage('ico_new.png');
+        $new_button->setImage('bs:plus');
         
-         $list_button=new TButton('list');
-         $list_button->setAction(new TAction(array('MemberList','onReload')), _t('Back to the listing'));
-         $list_button->setImage('ico_datagrid.png');
+        $list_button=new TButton('list');
+        $list_button->setAction(new TAction(array('MemberList','onReload')), _t('Back to the listing'));
+        $list_button->setImage('bs:th-list');
         
         // define the form fields
         $this->form->setFields(array($id, 
@@ -206,11 +206,8 @@ class MemberForm extends TPage
         $row->class = 'tformaction';
         $cell = $row->addCell( $buttons );
         $cell->colspan = 4;
-
-        $container = new TTable;
-        $container->style = 'width: 80%';
-        $container->addRow()->addCell(new TXMLBreadCrumb('menu.xml', 'SystemUserList'));
-        $container->addRow()->addCell($this->form);
+        
+        $container = TVBox::pack( new TXMLBreadCrumb('menu.xml', 'MemberList'), $this->form);
 
         // add the form to the page
         parent::add($container);
@@ -232,6 +229,10 @@ class MemberForm extends TPage
                         
             // form validation
             $this->form->validate();
+            
+            //validation Unique
+            $uniqueValidator = new TUniqueValidator;
+            $uniqueValidator->validate('CPF', $object->cpf, array('database' => 'ieadb', 'model' => 'Member','field' => 'cpf', 'id' => $object->id));
             
             
             if($object->image)
@@ -270,7 +271,7 @@ class MemberForm extends TPage
             // close the transaction
             TTransaction::close();
             
-            $action_redirect = new TAction(array($this, 'onRedirect'));
+            $action_redirect = new TAction(array('MemberList', 'onReload'));
             
             // shows the success message
             new TMessage('info', TAdiantiCoreTranslator::translate('Record saved'), $action_redirect);
@@ -299,6 +300,10 @@ class MemberForm extends TPage
                 
                 // instantiates object System_user
                 $object = new Member($key);
+                $object->birth_date = TDate::date2br($object->birth_date);
+                $object->date_of_conversion = TDate::date2br($object->date_of_conversion);
+                $object->date_of_water_baptism = TDate::date2br($object->date_of_water_baptism);
+                $object->date_of_spirit_baptism = TDate::date2br($object->date_of_spirit_baptism);
                 
                 // fill the form with the active record data
                 $this->form->setData($object);
@@ -378,10 +383,5 @@ class MemberForm extends TPage
             // undo all pending operations
             TTransaction::rollback();
         }    
-    }
-    
-    function onRedirect()
-    {
-        TApplication::executeMethod('MemberList', 'onReload');
     }
 }

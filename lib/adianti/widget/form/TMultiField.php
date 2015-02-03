@@ -326,16 +326,16 @@ class TMultiField extends TField implements AdiantiWidgetInterface
             $add = new TButton("{$this->name}btnStore");
             $add->setLabel(AdiantiCoreTranslator::translate('Register'));
             //$add->setName("{$this->name}btnStore");
-            $add->setImage('ico_save.png');
+            $add->setImage('bs:floppy-disk');
             $add->addFunction("mtf{$this->name}.addRowFromFormFields()");
             
             $del = new TButton("{$this->name}btnDelete");
             $del->setLabel(AdiantiCoreTranslator::translate('Delete'));
-            $del->setImage('ico_delete.png');
+            $del->setImage('bs:trash');
             
             $can = new TButton("{$this->name}btnCancel");
             $can->setLabel(AdiantiCoreTranslator::translate('Cancel'));
-            $can->setImage('ico_close.png');
+            $can->setImage('bs:remove');
             
             $hbox_buttons = new THBox;
             $hbox_buttons->{'style'} = 'margin-top:3px;margin-bottom:3px';

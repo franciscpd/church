@@ -105,6 +105,10 @@ class TApplicationTranslator
         $this->messages['en'][] = 'Spirit Baptism';
         $this->messages['en'][] = 'Status';
         $this->messages['en'][] = 'Invalid image';
+        $this->messages['en'][] = 'Report';
+        $this->messages['en'][] = 'Output';
+        $this->messages['en'][] = 'Report generated. Please, enable popups in the browser (just in the web)';
+        $this->messages['en'][] = 'No records found';
         
         $this->messages['pt'][] = 'Arquivo não encontrado';
         $this->messages['pt'][] = 'Buscar';
@@ -196,6 +200,10 @@ class TApplicationTranslator
         $this->messages['pt'][] = 'Batismo no Espirito';
         $this->messages['pt'][] = 'Situação';
         $this->messages['pt'][] = 'Imagem inválida';
+        $this->messages['pt'][] = 'Relatório';
+        $this->messages['pt'][] = 'Formato';
+        $this->messages['pt'][] = 'Relatório gerado. Por favor, habilite popups no browser';
+        $this->messages['pt'][] = 'Nenhum registro encontrado';
     }
     
     /**

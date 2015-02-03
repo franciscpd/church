@@ -70,16 +70,16 @@ class SystemGroupForm extends TPage
         // create an action button (save)
         $save_button=new TButton('save');
         $save_button->setAction(new TAction(array($this, 'onSave')), _t('Save'));
-        $save_button->setImage('ico_save.png');
+        $save_button->setImage('bs:floppy-disk');
         
         // create an new button (edit with no parameters)
         $new_button=new TButton('new');
         $new_button->setAction(new TAction(array($this, 'onEdit')), _t('New'));
-        $new_button->setImage('ico_new.png');
+        $new_button->setImage('bs:plus');
         
         $list_button=new TButton('list');
         $list_button->setAction(new TAction(array('SystemGroupList','onReload')), _t('Back to the listing'));
-        $list_button->setImage('ico_datagrid.png');
+        $list_button->setImage('bs:th-list');
 
         // define the form fields
         $this->form->setFields(array($id,$name,$multifield,$save_button,$new_button,$list_button));
